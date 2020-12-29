@@ -24,7 +24,7 @@ Some questions:
 * Understand modern processor memory architectures (e.g. ARM)
 
 
-# 30-11-2020: Instruction Level Parallelism
+## 30-11-2020: Instruction Level Parallelism
 
 * Out-of-Order execution
 * CPI = CPI_ideal + SUM{ f_hazard }
@@ -83,7 +83,7 @@ Problems: aliasing+loops are predicted wrong twice. Inner loops are predicted wr
 
 Solves loop problem by only changing prediction when mispredicted twice.
 
-# 2-12-2020: Guest lecture GPUs, Van de Braak
+## 2-12-2020: Guest lecture GPUs, Van de Braak
 
 SIMD: single instruction multiple data, e.g. using SSE instructions.
 
