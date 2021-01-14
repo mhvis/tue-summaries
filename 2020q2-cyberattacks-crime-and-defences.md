@@ -62,3 +62,42 @@ Conclusion: specification-based and WhiteBox are the only way for prevention.
 * Attacks don't care about high vulnerabilities: top 10 CVEs are even likely used as 10 random CVEs.
 * Weakest link model of attacks doesn't hold up. It ignores scale (attackers-victims are not one-to-one).
 * Types of attackers: criminals (cost < benefits), hacktivist (cost < fixed limit), nation states (no constraints), occasionals (insiders).
+
+### 12
+
+Cybercrime is an extension of traditional crime.
+
+* First order: enabler of the attack
+* Second order: products/information, e.g. credit card numbers, banking account numbers, ..
+
+Agency theory
+
+Legal market has law enforcement and regulation that enforces fair market and competition. This is not available in the criminal malware market.
+
+#### Forums
+
+Moral hazard: people not sticking to the contract, easy because of anonimity.
+
+Mechanisms to address moral hazards
+
+* High cost of entry: being banned is expensive
+* Fear of punishment (being kicked out of the market)
+* User reputation
+* Rule enforcements using trials
+
+Forum allows for high interaction between seller and buyer.
+
+#### E-commerce illegal markets
+
+### 13
+
+Cybercriminal networks:
+
+* are international *and local* (offenders and victims are physically located)
+* *have* dependency relationships
+* *last long*
+
+Members of cybercriminal networks:
+
+* know each other based on *offline and online social ties*
+* are *mostly not* specialists
