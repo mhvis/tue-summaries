@@ -2,6 +2,17 @@
 # Embedded Computer Architecture (2020-Q2)
 
 
+## Fundamentals of computer architecture
+
+Amdahl's law
+
+* Speedup_overall
+* = T_exec,old / T_exec,new
+* = 1 / ((1-f_parallel) + (f_parallel / speedup_parallel))
+* f_parallel = parallel fraction
+
+CPI
+
 * CPI: cycles per instruction
 * t_exec = N_instr * CPI * t_cycle
 
@@ -9,6 +20,9 @@
 ### RISC characteristics
 
 Need to know the 6 or 7 RISC characteristics and the reasoning.
+
+
+
 
 ## 25-11-2020: Something on Virtual Memory
 
