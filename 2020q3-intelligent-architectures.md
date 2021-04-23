@@ -241,3 +241,70 @@ Why +1/-1 instead of +1/0? If you have +1/0 you get an AND, which has more infor
 
 
 Ternary symbol(?)
+
+
+## 16-3-2021
+
+Systolic array: array of data processing units (DPUs, a.k.a. processing elements, PEs) which are connected to a small number of nearest neighbour DPUs.
+
+Mapper idea: lots of data reuse in a global buffer, and lots of processing elements (PEs) in array formation.
+
+Application specific instruction-set processors (ASIP). Open ASIP toolset: TTA-based co-design environment (TCE).
+
+EDAP: energy delay area product
+
+Overview of microprocessor designs: Moore's law still holds. Dennard scaling stopped around 2003, it's no longer possible to scale up without increase of power consumption. See `microprocessor_designs.png`.
+
+Reduce control overhead:
+
+* SIMD extensions: change scalar operations to vector/SIMD operations. Support for vector instructions is widespread, e.g. in Intel SSE.
+  * E.g. 1st gen Intel Xeon: vpmaddwd, vpaddd, vpmaddubsw
+  * 2nd gen Intel Xeon
+
+bfloat16: IEEE float-like with larger exponent but smaller fraction/mantissa, i.e. less accurate.
+
+SIMD vs GPU:
+
+* GPUs uses threads instead of vectors
+
+Recent addition, e.g. Nvidia Ampere (2020): Tensor cores, which do complete matrix multiply accumulates.
+
+DSPs: better energy efficiency due to reduced control overhead
+
+
+## 19-3-2021
+
+### Willem Sanberg
+
+Network architecture search (NAS): automated NAS tries to find effective and efficient neural networks.
+
+Hardware-aware neural architecture search: Neural networks can be optimized for specific machine types, e.g. a specific network for iPhone and Samsung
+
+Example: SqueezeNAS
+
+Graduation project possibilities! See `nas.png`.
+
+### Floran: design space exploration tools
+
+These tools allow to evaluate many architecture mappings to find the best one.
+
+Cost estimation: YAML description of the inputs+outputs and system architecture and mapping of the algorithm onto hardware.
+Using this, one could estimate the cost of the algorithm in energy consumed.
+
+Unbalanced memory hierarchy: not all levels support the same operations (Weights/Inputs/Outputs), as opposed to balanced memory hierarchy.
+
+ZigZag creates a mapping analysis showing usage of caches et cetera.
+
+Search strategies:
+
+* Exhaustive search goes over all possible mapping configurations to find the best one.
+* Heuristic V1 prunes mapping at loop-ordering stages
+* Heuristic v2 prunes at loop blocking and loop ordering stages
+* Iterative search prunes also at each loop iteration.
+
+Tools: Timeloop and ZigZag
+
+* Timeloop support only even mappings, ZigZag supports uneven mappings
+* Timeloop: cost estimation is fine-grained, ZigZag: cost estimation is coarse-grained
+
+ZigZag achieves better energy reduction because of its support for uneven mappings.

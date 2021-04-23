@@ -88,7 +88,7 @@ In practice:
 For fitting regression data with a kernel: `KernelRidge`
 
 
-## 22-2-2021: 4 Model selection
+## 22-2-2021: 4. Model selection
 
 K-fold cross-validation: variance is also important to see whether the data is 'balanced'. K=5 is good, k=10 is better.
 
@@ -104,7 +104,7 @@ OOB: out-of-bootstrap, unsampled samples
 CV with groups: make sure that data from one person is in *either* the thrain *or* test set. Called grouping/blocking. Leave-one-subject-out CV.
 
 
-### Binary classification
+### Binary classification (4a)
 
 False positive: type 1 error
 False negative: type 2 error
@@ -120,6 +120,14 @@ Recall (a.k.a. sensitivity, hit rate, true positive rate (TPR)): use this to lim
 F1-score: combination of precision and recall: F1 = 2 * ((precision*recall) / (precision+recall))
 
 Multi-class classification: divide the classes into separate models with binary classification, such that each model has a binary classification of whether it is in a certain class. Then average: micro-averaging (every sample equally important), macro-averaging (use this when classes are imbalanced), weighted averaging (weight score by how many samples there are in each class)
+
+Receiver operating characteristics (ROC) curve: trade off true positive rate (TPR, a.k.a. recall, TP/(TP+FN)) with false positive rate (FPR, FP/(FP+TN)). AUC: area under the ROC curve (a.k.a. AUROC), gives the best overall model. If you use random guessing, you will get AUC of 0.5, that is the worst possible AUC.
+If you have multiple classes, make multiple models and take the average ROC curve, using either micro-averaging or macro-averaging.
+
+
+(To watch: lecture 4b!)
+
+
 
 ## 24-2-2021
 
@@ -188,3 +196,46 @@ Neuron: a.k.a. node, unit, cell.
 
 Per layer in the network we have a weight matrix with w_{i,j} the weight between node i and j.
 
+Other architectures:
+
+* Recurrent networks (RNN), for sequential data, e.g. text. It remembers what the previous input was.
+* Auto encoder (AE): 'learning the representation of something'. Can be used to compare or generate new images or text.
+  * Variational AE: useful to generate artificial images.
+* Deep residual network (DRN): long network with skip connections which remembers the original image deep inside of the network.
+
+
+### Training
+
+Choosing a way to initialize the weights, e.g. random initialization, actually has a big impact.
+
+Mini-batch SGD:
+
+1. Draw a batch (with batch_size) from the training data.
+2. Forward pass to yield predictions.
+3. Compute the loss.
+4. Backward pass: compute the gradient of the loss w.r.t. every weight.
+5. Update weight matrix, with a learning rate.
+
+Backpropagation: see 3Blue1Brown "What is backpropagation really doing? | Deep learning, chapter 3".
+
+Activation functions for linear layers:
+
+* Sigmoid: f(z) = 1/(1+e^{-z})
+* Tanh: f(z) = 2/(1+e^{-2x}) - 1
+* Rectified Linear (ReLU): f(z) = max(0, z)
+* Leaky ReLU: f(z) = 0.01z if z<0, z otherwise
+
+ReLU vs tanh: ReLU creates piecewise linear boundaries, but allows deeper networks. Tanh produces smooth decision bounderies, but is slower. ReLU is less prone to overfitting because we take linear lines instead of complex (smoother) functions.
+
+Activation functions for output layers:
+
+* Sigmoid converts output to probability between 0 and 1, e.g. for binary classification.
+* Softmax converts all outputs to probabilities that sum up to 1, only for multi-class classification. Can cause over-confident models, in that case you can smooth the labels.
+* (For regression, don't use any activation function.)
+
+(End of lecture, stopped at slide 'weight initialization'.)
+
+
+## 22-3-2021
+
+CNN + using a pretrained network

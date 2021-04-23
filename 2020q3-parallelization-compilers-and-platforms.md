@@ -148,3 +148,30 @@ Reading material which can be helpful for assignment 3: see slide.
 
 LLVM developers' meeting tutorial session: https://www.youtube.com/watch?v=mIBUY20d8c8
 
+
+## 18-3-2021: OpenMP
+
+Hyper-threading: interleave different processes on the same processor, as opposed to multi-core where you have multiple processors.
+
+OpenMP: abstraction for multi-threading to allow for executing on different types of machines.
+
+Fork-join programming model: initial thread splits of (forks) and later the fork joins together.
+
+Outlining: opposite of inlining. LLVM uses early outlining because implementing late outlining would need a lot of changes in the backend. LLVM early outlining happens in the clang frontend.
+
+In OpenMP, the loop index (i) is private, all other variables are shared.
+
+Nested loops: OpenML by default only makes the outer loop index private. We need to make the inner loop index private manually using `private(i)`. Or make everything private by default using `default(none)`.
+
+False sharing: each thread has its own variable defined as an element of an array, however they are in consecutive locations in the memory and thus on the same cache line.
+
+OpenML has a high level `reduction()` directive in cases for a reduction like a sum.
+
+### New additions to OpenMP
+
+Tasks: developer specify the task, OpenMP schedules the tasks in parallel.
+
+
+## 22-3-2021
+
+Architecture things
